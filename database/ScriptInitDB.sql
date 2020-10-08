@@ -1,6 +1,6 @@
 CREATE DATABASE BucketList;
 
-CREATE TABLE `BucketList`.`tbl_user` (
+CREATE TABLE `tbl_user` (
     `user_id` BIGINT AUTO_INCREMENT,
     `user_name` VARCHAR(45) NULL,
     `user_username` VARCHAR(45) NULL,
@@ -63,11 +63,9 @@ CREATE TABLE `tbl_wish` (
 
 
 
-USE `BucketList`;
-DROP procedure IF EXISTS `BucketList`.`sp_addWish`;
+DROP procedure IF EXISTS `sp_addWish`;
  
 DELIMITER $$
-USE `BucketList`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_addWish`(
     IN p_title varchar(45),
     IN p_description varchar(1000),
@@ -92,12 +90,9 @@ END$$
 DELIMITER ;
 ;
 
-
-USE `BucketList`;
 DROP procedure IF EXISTS `sp_GetWishByUser`;
  
 DELIMITER $$
-USE `BucketList`$$
 CREATE PROCEDURE `sp_GetWishByUser` (
 IN p_user_id bigint
 )
